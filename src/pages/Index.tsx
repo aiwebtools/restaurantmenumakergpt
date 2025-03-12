@@ -23,6 +23,27 @@ const Index = () => {
     if (hasAgreed) {
       setShowDisclaimer(false);
     }
+    
+    // Set up scroll animation observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Once the animation has played, we can remove the observer
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    
+    // Observe all elements with the 'reveal-on-scroll' class
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+    
+    return () => observer.disconnect();
   }, []);
 
   const handleDisclaimerAgreement = () => {

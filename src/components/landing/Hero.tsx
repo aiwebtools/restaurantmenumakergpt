@@ -1,12 +1,20 @@
 
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface HeroProps {
   menuMakerUrl: string;
 }
 
 const Hero = ({ menuMakerUrl }: HeroProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Add staggered animation after component mounts
+    setIsVisible(true);
+  }, []);
+
   return (
     <section className="pt-32 pb-20 container mx-auto text-center relative">
       <div className="absolute inset-0 bg-cyber-grid opacity-5"></div>
@@ -17,26 +25,26 @@ const Hero = ({ menuMakerUrl }: HeroProps) => {
         <div className="shooting-star"></div>
         <div className="shooting-star"></div>
       </div>
-      <div className="relative z-10">
-        <h1 className="text-6xl font-bold mb-6 text-gradient animate-float">
+      <div className={`relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <h1 className="text-6xl font-bold mb-6 text-gradient animate-float glow-text">
           Restaurant Menu Maker GPT
         </h1>
-        <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+        <p className={`text-xl text-gray-300 mb-8 max-w-2xl mx-auto transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           Create professionally formatted, fully customized restaurant menus that perfectly align with your brand, cuisine style, and pricing strategy.
         </p>
-        <div className="flex justify-center gap-4">
+        <div className={`flex justify-center gap-4 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <Button
             size="lg"
-            className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-opacity flex items-center gap-2"
+            className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-all duration-300 hover:scale-105 transform flex items-center gap-2 shadow-glow"
             data-url={menuMakerUrl}
             openInNewWindow={true}
           >
-            Create Your Menu <ExternalLink className="w-5 h-5" />
+            Create Your Menu <ExternalLink className="w-5 h-5 animate-pulse" />
           </Button>
           <Button
             size="lg"
             variant="outline"
-            className="border-neon-purple text-white hover:bg-neon-purple/10"
+            className="border-neon-purple text-white hover:bg-neon-purple/10 transition-all duration-300 hover:scale-105 transform"
             onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Learn More

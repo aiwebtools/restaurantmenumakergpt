@@ -35,7 +35,7 @@
 
   body {
     @apply bg-cyber-dark text-foreground font-['Space_Grotesk'] antialiased;
-    background-color: #131419; /* Darker background */
+    background-color: #0a0a10; /* Even darker background */
     background-size: 50px 50px;
     background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
     overflow-x: hidden;
@@ -43,11 +43,11 @@
   }
 
   .glass {
-    @apply bg-black/30 backdrop-blur-lg border border-white/10 rounded-xl;
+    @apply bg-black/30 backdrop-blur-lg border border-white/10 rounded-xl transition-all duration-300 hover:bg-black/40 hover:border-white/20;
   }
 
   .neon-border {
-    @apply relative rounded-xl overflow-hidden;
+    @apply relative rounded-xl overflow-hidden transition-all duration-300;
   }
 
   .neon-border::before {
@@ -60,10 +60,42 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     padding: 1px;
+    transition: all 0.3s ease;
+  }
+
+  .neon-border:hover::before {
+    background: linear-gradient(115deg, #D946EF, #9b87f5, #1EAEDB);
+    filter: brightness(1.2);
   }
 
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-neon-purple via-neon-blue to-neon-pink;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 10px rgba(155, 135, 245, 0.5), 0 0 20px rgba(217, 70, 239, 0.3);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 15px rgba(155, 135, 245, 0.5);
+  }
+
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal-on-scroll.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Shimmer effect */
+  .shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background-size: 500px 100%;
+    animation: shimmer 2s infinite linear;
   }
 
   /* Shooting stars */
@@ -147,6 +179,32 @@
     left: 70%;
     animation-delay: 4.8s;
     animation-duration: 9s;
+  }
+  
+  /* Button hover effects */
+  button {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: width 0.6s ease-out, height 0.6s ease-out, opacity 0.6s ease-out;
+  }
+  
+  button:hover::after {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
   }
 }
 
