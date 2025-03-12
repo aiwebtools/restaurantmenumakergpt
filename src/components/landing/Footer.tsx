@@ -9,10 +9,10 @@ interface FooterProps {
 
 const Footer = ({ menuMakerUrl, aiWebToolsUrl }: FooterProps) => {
   return (
-    <footer className="glass mt-20 py-8">
-      <div className="container mx-auto">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div>
+    <footer className="glass mt-16 md:mt-20 py-8">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="flex flex-col items-center md:items-start">
             <h3 className="text-xl font-bold mb-4 text-gradient">Contact Us</h3>
             <a href="tel:4758008096" className="flex items-center text-gray-300 hover:text-neon-purple mb-2">
               <Phone className="w-4 h-4 mr-2" />
@@ -28,42 +28,44 @@ const Footer = ({ menuMakerUrl, aiWebToolsUrl }: FooterProps) => {
               <a href={menuMakerUrl}
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="text-xl font-bold text-gradient">
+                 className="text-lg md:text-xl font-bold text-gradient text-center">
                 Restaurant Menu Maker GPT
               </a>
               <a href={aiWebToolsUrl}
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="text-sm text-gray-300 hover:text-neon-purple transition-colors mt-1">
+                 className="text-xs md:text-sm text-gray-300 hover:text-neon-purple transition-colors mt-1 text-center">
                 Presented By AIWebTools.AI
               </a>
             </div>
-            <a href="https://openai.com/policies/privacy-policy" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               className="block text-gray-300 hover:text-neon-purple mb-2">
-              Privacy Policy
-            </a>
-            <a href="https://aiwebtools.ai/terms-of-services" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               className="block text-gray-300 hover:text-neon-purple">
-              Terms of Service
-            </a>
+            <div className="flex flex-col md:flex-row md:gap-4 items-center">
+              <a href="https://openai.com/policies/privacy-policy" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="block text-gray-300 hover:text-neon-purple mb-2 md:mb-0">
+                Privacy Policy
+              </a>
+              <a href="https://aiwebtools.ai/terms-of-services" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="block text-gray-300 hover:text-neon-purple">
+                Terms of Service
+              </a>
+            </div>
           </div>
           <div className="flex flex-col items-center">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2 mb-4"
+              className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2 mb-4 w-full md:w-auto justify-center"
               data-url={menuMakerUrl}
               openInNewWindow={true}
             >
               Try Restaurant Menu Maker GPT <ExternalLink className="w-4 h-4" />
             </Button>
             <a href={aiWebToolsUrl} 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-opacity">
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-opacity w-full md:w-auto justify-center">
               More AI Tools
               <MoreHorizontal className="ml-2" />
             </a>
@@ -73,7 +75,7 @@ const Footer = ({ menuMakerUrl, aiWebToolsUrl }: FooterProps) => {
           <a href={aiWebToolsUrl} 
              target="_blank" 
              rel="noopener noreferrer" 
-             className="text-gray-400 hover:text-neon-purple">
+             className="text-gray-400 hover:text-neon-purple text-sm">
             © 2025 AI WEB TOOLS LLC All rights reserved.
           </a>
         </div>
