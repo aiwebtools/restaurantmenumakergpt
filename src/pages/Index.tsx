@@ -18,6 +18,7 @@ import { ChefHat, FileText, HelpCircle, MoreHorizontal, Mail, Phone, Star, Check
 const Index = () => {
   const [showDisclaimer, setShowDisclaimer] = useState(true);
   const menuMakerUrl = 'https://chatgpt.com/g/g-67d19b9603b88191b06af94c143439ce-restaurant-menu-maker-gpt';
+  const aiWebToolsUrl = 'https://www.aiwebtools.ai';
 
   useEffect(() => {
     const hasAgreed = localStorage.getItem('disclaimerAgreement');
@@ -46,19 +47,27 @@ const Index = () => {
     <div className="min-h-screen bg-cyber-dark">
       <header className="glass fixed top-0 w-full z-50 py-4">
         <nav className="container mx-auto flex items-center justify-between">
-          <a href={menuMakerUrl}
-             target="_blank"
-             rel="noopener noreferrer"
-             className="text-2xl font-bold text-gradient">
-            Restaurant Menu Maker GPT
-          </a>
+          <div className="flex flex-col">
+            <a href={menuMakerUrl}
+               target="_blank"
+               rel="noopener noreferrer"
+               className="text-2xl font-bold text-gradient">
+              Restaurant Menu Maker GPT
+            </a>
+            <a href={aiWebToolsUrl}
+               target="_blank"
+               rel="noopener noreferrer"
+               className="text-sm text-gray-300 hover:text-neon-purple transition-colors mt-1">
+              Presented By AIWebTools.AI
+            </a>
+          </div>
           <div className="flex gap-6 items-center">
             <a href="#about" className="text-white hover:text-neon-purple transition-colors">About</a>
             <a href="#how-it-works" className="text-white hover:text-neon-purple transition-colors">How It Works</a>
             <a href="#testimonials" className="text-white hover:text-neon-purple transition-colors">Testimonials</a>
             <a href="#faq" className="text-white hover:text-neon-purple transition-colors">FAQ</a>
             <a href="#disclaimer" className="text-white hover:text-neon-purple transition-colors">Disclaimer</a>
-            <a href="https://www.aiwebtools.ai" 
+            <a href={aiWebToolsUrl} 
                target="_blank" 
                rel="noopener noreferrer" 
                className="text-white hover:text-neon-purple transition-colors">
@@ -552,12 +561,31 @@ const Index = () => {
                 Contact@ai-webtools.com
               </a>
             </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4 text-gradient">Legal</h3>
-              <a href="https://openai.com/policies/privacy-policy" className="block text-gray-300 hover:text-neon-purple mb-2">
+            <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center mb-4">
+                <a href={menuMakerUrl}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="text-xl font-bold text-gradient">
+                  Restaurant Menu Maker GPT
+                </a>
+                <a href={aiWebToolsUrl}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="text-sm text-gray-300 hover:text-neon-purple transition-colors mt-1">
+                  Presented By AIWebTools.AI
+                </a>
+              </div>
+              <a href="https://openai.com/policies/privacy-policy" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 className="block text-gray-300 hover:text-neon-purple mb-2">
                 Privacy Policy
               </a>
-              <a href="https://aiwebtools.ai/terms-of-services" className="block text-gray-300 hover:text-neon-purple">
+              <a href="https://aiwebtools.ai/terms-of-services" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 className="block text-gray-300 hover:text-neon-purple">
                 Terms of Service
               </a>
             </div>
@@ -570,7 +598,7 @@ const Index = () => {
               >
                 Try Restaurant Menu Maker GPT <ExternalLink className="w-4 h-4" />
               </Button>
-              <a href="https://www.aiwebtools.ai" 
+              <a href={aiWebToolsUrl} 
                  target="_blank" 
                  rel="noopener noreferrer" 
                  className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-opacity">
@@ -580,7 +608,7 @@ const Index = () => {
             </div>
           </div>
           <div className="mt-8 text-center">
-            <a href="https://www.aiwebtools.ai" 
+            <a href={aiWebToolsUrl} 
                target="_blank" 
                rel="noopener noreferrer" 
                className="text-gray-400 hover:text-neon-purple">
