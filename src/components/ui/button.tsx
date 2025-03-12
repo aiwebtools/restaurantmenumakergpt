@@ -1,3 +1,4 @@
+
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -37,16 +38,29 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
+  openInNewWindow?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, openInNewWindow = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
+    const buttonProps = openInNewWindow ? {
+      onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        window.open(props.onClick ? undefined : props['data-url'] as string, '_blank');
+        if (props.onClick && typeof props.onClick === 'function') {
+          props.onClick(e);
+        }
+      },
+      ...(props.onClick ? {} : { 'data-url': props['data-url'] }),
+      ...props
+    } : props;
+
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
-        {...props}
+        {...buttonProps}
       />
     )
   }

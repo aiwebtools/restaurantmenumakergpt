@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import {
@@ -18,6 +17,7 @@ import { ChefHat, FileText, HelpCircle, MoreHorizontal, Mail, Phone, Star, Check
 
 const Index = () => {
   const [showDisclaimer, setShowDisclaimer] = useState(true);
+  const menuMakerUrl = 'https://chatgpt.com/g/g-67d19b9603b88191b06af94c143439ce-restaurant-menu-maker-gpt';
 
   useEffect(() => {
     const hasAgreed = localStorage.getItem('disclaimerAgreement');
@@ -37,17 +37,18 @@ const Index = () => {
     ));
   };
 
-  // Function to navigate to the Restaurant Menu Maker GPT URL
-  const goToMenuMakerGPT = () => {
-    window.location.href = 'https://chatgpt.com/g/g-67d19b9603b88191b06af94c143439ce-restaurant-menu-maker-gpt';
+  const goToMenuMakerGPT = (e) => {
+    e.preventDefault();
+    window.open(menuMakerUrl, '_blank');
   };
 
   return (
     <div className="min-h-screen bg-cyber-dark">
-      {/* Header */}
       <header className="glass fixed top-0 w-full z-50 py-4">
         <nav className="container mx-auto flex items-center justify-between">
-          <a href="https://chatgpt.com/g/g-67d19b9603b88191b06af94c143439ce-restaurant-menu-maker-gpt" 
+          <a href={menuMakerUrl}
+             target="_blank"
+             rel="noopener noreferrer"
              className="text-2xl font-bold text-gradient">
             Restaurant Menu Maker GPT
           </a>
@@ -57,12 +58,16 @@ const Index = () => {
             <a href="#testimonials" className="text-white hover:text-neon-purple transition-colors">Testimonials</a>
             <a href="#faq" className="text-white hover:text-neon-purple transition-colors">FAQ</a>
             <a href="#disclaimer" className="text-white hover:text-neon-purple transition-colors">Disclaimer</a>
-            <a href="https://www.aiwebtools.ai" className="text-white hover:text-neon-purple transition-colors">
+            <a href="https://www.aiwebtools.ai" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               className="text-white hover:text-neon-purple transition-colors">
               More AI Tools
             </a>
             <Button 
               className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2"
-              onClick={goToMenuMakerGPT}
+              data-url={menuMakerUrl}
+              openInNewWindow={true}
             >
               Try It Now <ExternalLink className="w-4 h-4" />
             </Button>
@@ -70,7 +75,6 @@ const Index = () => {
         </nav>
       </header>
 
-      {/* Hero Section */}
       <section className="pt-32 pb-20 container mx-auto text-center relative">
         <div className="absolute inset-0 bg-cyber-grid opacity-10"></div>
         <div className="relative z-10">
@@ -84,7 +88,8 @@ const Index = () => {
             <Button
               size="lg"
               className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-opacity flex items-center gap-2"
-              onClick={goToMenuMakerGPT}
+              data-url={menuMakerUrl}
+              openInNewWindow={true}
             >
               Create Your Menu <ExternalLink className="w-5 h-5" />
             </Button>
@@ -100,7 +105,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About This AI Tool Section */}
       <section id="about" className="py-20 container mx-auto relative">
         <div className="absolute inset-0 bg-cyber-grid opacity-5"></div>
         <div className="relative z-10">
@@ -142,7 +146,8 @@ const Index = () => {
               <div className="mt-8">
                 <Button
                   className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2"
-                  onClick={goToMenuMakerGPT}
+                  data-url={menuMakerUrl}
+                  openInNewWindow={true}
                 >
                   Try It Now <ExternalLink className="w-4 h-4" />
                 </Button>
@@ -159,7 +164,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
       <section id="how-it-works" className="py-20 container mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12 text-gradient">How It Works</h2>
         <div className="grid md:grid-cols-3 gap-8">
@@ -286,7 +290,8 @@ const Index = () => {
             <Button
               size="lg"
               className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2"
-              onClick={goToMenuMakerGPT}
+              data-url={menuMakerUrl}
+              openInNewWindow={true}
             >
               Start Creating Your Menu <ExternalLink className="w-5 h-5" />
             </Button>
@@ -294,7 +299,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
       <section id="testimonials" className="py-20 container mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12 text-gradient">What Restaurant Owners Say</h2>
         
@@ -361,14 +365,14 @@ const Index = () => {
           <Button
             size="lg"
             className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2"
-            onClick={goToMenuMakerGPT}
+            data-url={menuMakerUrl}
+            openInNewWindow={true}
           >
             Join Thousands of Satisfied Users <ExternalLink className="w-5 h-5" />
           </Button>
         </div>
       </section>
 
-      {/* Showcase Section */}
       <section className="py-20 container mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -402,7 +406,8 @@ const Index = () => {
             <div className="mt-8">
               <Button
                 className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2"
-                onClick={goToMenuMakerGPT}
+                data-url={menuMakerUrl}
+                openInNewWindow={true}
               >
                 Transform Your Menu Now <ExternalLink className="w-4 h-4" />
               </Button>
@@ -418,7 +423,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
       <section id="faq" className="py-20 container mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12 text-gradient">Frequently Asked Questions</h2>
         <Accordion type="single" collapsible className="max-w-2xl mx-auto">
@@ -497,14 +501,14 @@ const Index = () => {
           <Button
             size="lg"
             className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2"
-            onClick={goToMenuMakerGPT}
+            data-url={menuMakerUrl}
+            openInNewWindow={true}
           >
             Get Answers to Your Questions <ExternalLink className="w-5 h-5" />
           </Button>
         </div>
       </section>
 
-      {/* Call to Action */}
       <section className="py-20 container mx-auto text-center">
         <div className="glass p-12 rounded-2xl max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gradient mb-6">Ready to Transform Your Restaurant Menu?</h2>
@@ -514,14 +518,14 @@ const Index = () => {
           <Button
             size="lg"
             className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-opacity flex items-center gap-2"
-            onClick={goToMenuMakerGPT}
+            data-url={menuMakerUrl}
+            openInNewWindow={true}
           >
             Create Your Menu Now <ExternalLink className="w-5 h-5" />
           </Button>
         </div>
       </section>
 
-      {/* Disclaimer Section */}
       <section id="disclaimer" className="py-20 container mx-auto">
         <Card className="glass">
           <CardHeader>
@@ -534,7 +538,6 @@ const Index = () => {
         </Card>
       </section>
 
-      {/* Footer */}
       <footer className="glass mt-20 py-8">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
@@ -562,25 +565,31 @@ const Index = () => {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2 mb-4"
-                onClick={goToMenuMakerGPT}
+                data-url={menuMakerUrl}
+                openInNewWindow={true}
               >
                 Try Restaurant Menu Maker GPT <ExternalLink className="w-4 h-4" />
               </Button>
-              <a href="https://www.aiwebtools.ai" className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-opacity">
+              <a href="https://www.aiwebtools.ai" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-opacity">
                 More AI Tools
                 <MoreHorizontal className="ml-2" />
               </a>
             </div>
           </div>
           <div className="mt-8 text-center">
-            <a href="https://www.aiwebtools.ai" className="text-gray-400 hover:text-neon-purple">
+            <a href="https://www.aiwebtools.ai" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               className="text-gray-400 hover:text-neon-purple">
               © 2025 AI WEB TOOLS LLC All rights reserved.
             </a>
           </div>
         </div>
       </footer>
 
-      {/* Disclaimer Dialog */}
       <Dialog open={showDisclaimer} onOpenChange={setShowDisclaimer}>
         <DialogContent className="glass border-neon-purple">
           <DialogHeader>
@@ -604,11 +613,12 @@ const Index = () => {
         </DialogContent>
       </Dialog>
 
-      {/* Floating Action Button */}
       <div className="fixed bottom-6 right-6 z-50">
         <Button
           className="rounded-full w-16 h-16 bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center justify-center"
-          onClick={goToMenuMakerGPT}
+          data-url={menuMakerUrl}
+          openInNewWindow={true}
+          aria-label="Create menu"
         >
           <ChefHat className="w-8 h-8" />
         </Button>
