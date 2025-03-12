@@ -40,12 +40,12 @@ export default {
           orange: "#F97316",
         },
         cyber: {
-          dark: "#1A1F2C",
+          dark: "#0d0d12", // Darker background color
           light: "#D6BCFA",
         },
       },
       backgroundImage: {
-        'cyber-grid': "linear-gradient(rgba(50, 50, 50, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(50, 50, 50, 0.2) 1px, transparent 1px)",
+        'cyber-grid': "linear-gradient(rgba(40, 40, 40, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(40, 40, 40, 0.1) 1px, transparent 1px)",
       },
       keyframes: {
         "float": {

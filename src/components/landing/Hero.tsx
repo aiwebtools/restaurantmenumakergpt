@@ -9,7 +9,14 @@ interface HeroProps {
 const Hero = ({ menuMakerUrl }: HeroProps) => {
   return (
     <section className="pt-32 pb-20 container mx-auto text-center relative">
-      <div className="absolute inset-0 bg-cyber-grid opacity-10"></div>
+      <div className="absolute inset-0 bg-cyber-grid opacity-5"></div>
+      <div className="stars-container">
+        <div className="shooting-star"></div>
+        <div className="shooting-star"></div>
+        <div className="shooting-star"></div>
+        <div className="shooting-star"></div>
+        <div className="shooting-star"></div>
+      </div>
       <div className="relative z-10">
         <h1 className="text-6xl font-bold mb-6 text-gradient animate-float">
           Restaurant Menu Maker GPT
