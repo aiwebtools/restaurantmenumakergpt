@@ -14,7 +14,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ChefHat, FileText, HelpCircle, MoreHorizontal, Mail, Phone, Star, CheckCircle, User, FileCode, MessageSquare, Award } from "lucide-react";
+import { ChefHat, FileText, HelpCircle, MoreHorizontal, Mail, Phone, Star, CheckCircle, User, FileCode, MessageSquare, Award, ExternalLink } from "lucide-react";
 
 const Index = () => {
   const [showDisclaimer, setShowDisclaimer] = useState(true);
@@ -37,6 +37,11 @@ const Index = () => {
     ));
   };
 
+  // Function to navigate to the Restaurant Menu Maker GPT URL
+  const goToMenuMakerGPT = () => {
+    window.location.href = 'https://chatgpt.com/g/g-67d19b9603b88191b06af94c143439ce-restaurant-menu-maker-gpt';
+  };
+
   return (
     <div className="min-h-screen bg-cyber-dark">
       {/* Header */}
@@ -46,7 +51,7 @@ const Index = () => {
              className="text-2xl font-bold text-gradient">
             Restaurant Menu Maker GPT
           </a>
-          <div className="flex gap-6">
+          <div className="flex gap-6 items-center">
             <a href="#about" className="text-white hover:text-neon-purple transition-colors">About</a>
             <a href="#how-it-works" className="text-white hover:text-neon-purple transition-colors">How It Works</a>
             <a href="#testimonials" className="text-white hover:text-neon-purple transition-colors">Testimonials</a>
@@ -55,6 +60,12 @@ const Index = () => {
             <a href="https://www.aiwebtools.ai" className="text-white hover:text-neon-purple transition-colors">
               More AI Tools
             </a>
+            <Button 
+              className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2"
+              onClick={goToMenuMakerGPT}
+            >
+              Try It Now <ExternalLink className="w-4 h-4" />
+            </Button>
           </div>
         </nav>
       </header>
@@ -69,13 +80,23 @@ const Index = () => {
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Create professionally formatted, fully customized restaurant menus that perfectly align with your brand, cuisine style, and pricing strategy.
           </p>
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-opacity"
-            onClick={() => window.location.href = 'https://chatgpt.com/g/g-67d19b9603b88191b06af94c143439ce-restaurant-menu-maker-gpt'}
-          >
-            Get Started
-          </Button>
+          <div className="flex justify-center gap-4">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-opacity flex items-center gap-2"
+              onClick={goToMenuMakerGPT}
+            >
+              Create Your Menu <ExternalLink className="w-5 h-5" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-neon-purple text-white hover:bg-neon-purple/10"
+              onClick={() => document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' })}
+            >
+              Learn More
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -117,6 +138,14 @@ const Index = () => {
                   <CheckCircle className="w-5 h-5 text-neon-purple mr-2 mt-1" />
                   <span className="text-gray-300">Print-ready formats</span>
                 </div>
+              </div>
+              <div className="mt-8">
+                <Button
+                  className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2"
+                  onClick={goToMenuMakerGPT}
+                >
+                  Try It Now <ExternalLink className="w-4 h-4" />
+                </Button>
               </div>
             </div>
             <div className="bg-gradient-to-br from-neon-purple/20 to-neon-blue/20 p-1 rounded-xl neon-border">
@@ -253,6 +282,15 @@ const Index = () => {
               </CardContent>
             </Card>
           </div>
+          <div className="flex justify-center mt-12">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2"
+              onClick={goToMenuMakerGPT}
+            >
+              Start Creating Your Menu <ExternalLink className="w-5 h-5" />
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -318,6 +356,16 @@ const Index = () => {
             </CardContent>
           </Card>
         </div>
+        
+        <div className="flex justify-center mt-12">
+          <Button
+            size="lg"
+            className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2"
+            onClick={goToMenuMakerGPT}
+          >
+            Join Thousands of Satisfied Users <ExternalLink className="w-5 h-5" />
+          </Button>
+        </div>
       </section>
 
       {/* Showcase Section */}
@@ -351,6 +399,14 @@ const Index = () => {
                 </div>
               </li>
             </ul>
+            <div className="mt-8">
+              <Button
+                className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2"
+                onClick={goToMenuMakerGPT}
+              >
+                Transform Your Menu Now <ExternalLink className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
           <div className="bg-gradient-to-br from-neon-purple/20 to-neon-pink/20 p-1 rounded-xl neon-border">
             <img 
@@ -436,6 +492,16 @@ const Index = () => {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
+        
+        <div className="flex justify-center mt-12">
+          <Button
+            size="lg"
+            className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2"
+            onClick={goToMenuMakerGPT}
+          >
+            Get Answers to Your Questions <ExternalLink className="w-5 h-5" />
+          </Button>
+        </div>
       </section>
 
       {/* Call to Action */}
@@ -447,10 +513,10 @@ const Index = () => {
           </p>
           <Button
             size="lg"
-            className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-opacity"
-            onClick={() => window.location.href = 'https://chatgpt.com/g/g-67d19b9603b88191b06af94c143439ce-restaurant-menu-maker-gpt'}
+            className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-opacity flex items-center gap-2"
+            onClick={goToMenuMakerGPT}
           >
-            Create Your Menu Now
+            Create Your Menu Now <ExternalLink className="w-5 h-5" />
           </Button>
         </div>
       </section>
@@ -492,7 +558,14 @@ const Index = () => {
                 Terms of Service
               </a>
             </div>
-            <div>
+            <div className="flex flex-col items-center">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center gap-2 mb-4"
+                onClick={goToMenuMakerGPT}
+              >
+                Try Restaurant Menu Maker GPT <ExternalLink className="w-4 h-4" />
+              </Button>
               <a href="https://www.aiwebtools.ai" className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-opacity">
                 More AI Tools
                 <MoreHorizontal className="ml-2" />
@@ -530,6 +603,16 @@ const Index = () => {
           </Button>
         </DialogContent>
       </Dialog>
+
+      {/* Floating Action Button */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <Button
+          className="rounded-full w-16 h-16 bg-gradient-to-r from-neon-purple to-neon-orange hover:opacity-90 transition-opacity flex items-center justify-center"
+          onClick={goToMenuMakerGPT}
+        >
+          <ChefHat className="w-8 h-8" />
+        </Button>
+      </div>
     </div>
   );
 };
