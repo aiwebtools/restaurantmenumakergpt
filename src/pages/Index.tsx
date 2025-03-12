@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import {
@@ -7,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
 import {
   Accordion,
   AccordionContent,
@@ -17,18 +16,18 @@ import {
 import { ChefHat, FileText, HelpCircle, MoreHorizontal, Mail, Phone } from "lucide-react";
 
 const Index = () => {
-  const [showConsent, setShowConsent] = useState(true);
+  const [showDisclaimer, setShowDisclaimer] = useState(true);
 
   useEffect(() => {
-    const hasConsented = localStorage.getItem('userConsent');
-    if (hasConsented) {
-      setShowConsent(false);
+    const hasAgreed = localStorage.getItem('disclaimerAgreement');
+    if (hasAgreed) {
+      setShowDisclaimer(false);
     }
   }, []);
 
-  const handleConsent = () => {
-    localStorage.setItem('userConsent', 'true');
-    setShowConsent(false);
+  const handleDisclaimerAgreement = () => {
+    localStorage.setItem('disclaimerAgreement', 'true');
+    setShowDisclaimer(false);
   };
 
   return (
@@ -169,17 +168,26 @@ const Index = () => {
         </div>
       </footer>
 
-      {/* Consent Dialog */}
-      <Dialog open={showConsent} onOpenChange={setShowConsent}>
-        <DialogContent>
+      {/* Disclaimer Dialog */}
+      <Dialog open={showDisclaimer} onOpenChange={setShowDisclaimer}>
+        <DialogContent className="glass border-neon-purple">
           <DialogHeader>
-            <DialogTitle>Cookie Consent</DialogTitle>
+            <DialogTitle className="text-2xl text-gradient">Important Disclaimer</DialogTitle>
+            <DialogDescription className="text-gray-300 pt-2">
+              Restaurant Menu Maker GPT is provided for informational and creative purposes only. By using this tool, you acknowledge that:
+            </DialogDescription>
           </DialogHeader>
-          <p className="text-sm text-gray-400">
-            We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
-          </p>
-          <Button onClick={handleConsent} className="bg-neon-purple hover:bg-neon-purple/90">
-            I Agree
+          <div className="space-y-3 text-sm text-gray-300">
+            <p>• We do not guarantee the accuracy, completeness or reliability of any content generated.</p>
+            <p>• You are responsible for reviewing and verifying all menu content before professional use.</p>
+            <p>• We are not liable for any business decisions, financial outcomes, or legal issues related to menus created with this tool.</p>
+            <p>• We use cookies and similar technologies to enhance your experience and analyze site usage.</p>
+          </div>
+          <Button 
+            onClick={handleDisclaimerAgreement} 
+            className="bg-gradient-to-r from-neon-purple to-neon-pink hover:opacity-90 transition-opacity w-full mt-2"
+          >
+            I Understand and Agree
           </Button>
         </DialogContent>
       </Dialog>
