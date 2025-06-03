@@ -1,5 +1,5 @@
-
 import { useState, useEffect } from 'react';
+import SEO from '@/components/SEO';
 import Header from '@/components/landing/Header';
 import Hero from '@/components/landing/Hero';
 import About from '@/components/landing/About';
@@ -53,6 +53,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-cyber-dark">
+      <SEO />
       <Header menuMakerUrl={menuMakerUrl} aiWebToolsUrl={aiWebToolsUrl} />
       <Hero menuMakerUrl={menuMakerUrl} />
       <About menuMakerUrl={menuMakerUrl} />
