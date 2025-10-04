@@ -9,9 +9,9 @@ interface SEOProps {
 }
 
 const SEO = ({ 
-  title = "AI Web Tools - Free AI Tools for Restaurants | Restaurant Menu Maker GPT",
-  description = "Free AI tools for restaurants. Create professional restaurant menus with AI assistance. Restaurant Menu Maker GPT optimizes pricing, design & descriptions. Try our AI web tools today!",
-  keywords = "ai web tools, free ai tools, ai tools, restaurant ai tools, menu maker ai, restaurant menu generator, ai menu creator, free restaurant tools, aiwebtools.ai",
+  title = "Restaurant Menu Maker GPT - Free AI Menu Creator | AIWebTools.AI",
+  description = "Create professional restaurant menus instantly with AI. Restaurant Menu Maker GPT optimizes pricing, design & descriptions. Free AI-powered menu creation tool for restaurants.",
+  keywords = "restaurant menu maker gpt, ai menu creator, free ai menu generator, restaurant menu generator, ai tools for restaurants, menu maker ai, create restaurant menu, ai web tools, free ai tools, aiwebtools.ai",
   canonicalUrl = "https://aiwebtools.ai/"
 }: SEOProps) => {
   useEffect(() => {
