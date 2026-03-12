@@ -45,7 +45,7 @@ const Footer = ({ menuMakerUrl, aiWebToolsUrl }: FooterProps) => {
                 className="block text-gray-300 hover:text-neon-purple mb-2 md:mb-0">
                 Privacy Policy
               </a>
-              <a href="https://aiwebtools.ai/terms-of-services" 
+              <a href="https://aiwebtools.lovable.app/?via=aiwebtools" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="block text-gray-300 hover:text-neon-purple">

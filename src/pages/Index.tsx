@@ -16,7 +16,7 @@ import FloatingActionButton from '@/components/landing/FloatingActionButton';
 const Index = () => {
   const [showDisclaimer, setShowDisclaimer] = useState(true);
   const menuMakerUrl = 'https://chatgpt.com/g/g-67d19b9603b88191b06af94c143439ce-restaurant-menu-maker-gpt';
-  const aiWebToolsUrl = 'https://www.aiwebtools.ai';
+  const aiWebToolsUrl = 'https://aiwebtools.lovable.app/?via=aiwebtools';
 
   useEffect(() => {
     const hasAgreed = localStorage.getItem('disclaimerAgreement');
